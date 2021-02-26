@@ -1,0 +1,27 @@
+# Use generator to generate a square of number - 0 to n
+
+def func(n):
+    for i in range(n):
+        yield i ** 2
+
+
+for number in func(4):
+    print(number)
+
+# it will give generator object in output
+print("Generating object in the output")
+print(func(4))
+
+# it will give you a list in the output
+print("printing list in the output")
+print(list(func(4)))
+
+# next function works inside yield get the one by one output using next
+s = func(6)
+print("printing one by one next values used in the generator function")
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
