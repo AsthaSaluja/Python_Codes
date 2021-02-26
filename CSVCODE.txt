@@ -1,0 +1,41 @@
+import csv
+
+# CSV reader function
+data = open("MERCHANT.CSV")
+csv_data = csv.reader(data, delimiter=',')
+data_lines = list(csv_data)
+
+# Print the 0th index list
+print(data_lines[0])
+
+# Print length of data lines
+print(len(data_lines))
+
+# Print complete list of list
+print(data_lines)
+
+# Print 10th index list
+print(data_lines[10])
+
+# To get the list line wise
+for line in data_lines:
+    print(line)
+
+# Just to get Merchant Name
+for line in data_lines:
+    print(line[5])
+
+# To get a list of merchants:
+merchant_list = []
+for line in data_lines:
+    merchant_list.append(line[5])
+
+print(merchant_list)
+
+# CSV Writer Function
+output_file = open('Merchantoutput.csv', mode='w')
+csv_writer = csv.writer(output_file, delimiter='|')
+csv_writer.writerows(data_lines)
+output_file.close()
+data.close()
+
