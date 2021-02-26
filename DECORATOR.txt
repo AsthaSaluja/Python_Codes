@@ -1,0 +1,14 @@
+# use of decorator
+
+def new_decorator(other_func):
+    def my_wrapper():
+        print("Before wrapping")
+        other_func()
+        print('after wrapping')
+    return my_wrapper
+
+@new_decorator
+def need_decoration():
+    print("Please decorate me")
+
+need_decoration()
