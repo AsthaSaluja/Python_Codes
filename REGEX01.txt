@@ -1,0 +1,43 @@
+import re
+
+text = "The agent phone number is 408-222-9090. all soon!"
+pattern = 'phone'
+
+# re.search method will find the pattern in the statement and will return the output showing the
+# start position and end position as well. The limitation of re.search is it will find the first occurrence in the
+# text only and give its position.
+match = re.search(pattern, text)
+print(match)
+
+# To get the start and end position of the pattern
+print(match.span())
+
+# To get the start position of the pattern
+print(match.start())
+
+# To get the end position of the pattern
+print(match.end())
+
+text01 = "my phone is a smart phone"
+pattern01 = 'phone'
+
+# It will find all the matches corresponding to pattern01 and give output as ['phone, 'phone']
+# in the form of a list of all the match pattern. matches.span() will not work in this case
+matches = re.findall(pattern01, text01)
+print(matches)
+
+# To get the number of occurrences found.
+print(len(matches))
+
+# To iterate and get the values through a loop and get the output as for print(i)
+# <re.Match object; span=(3, 8), match='phone'>
+# <re.Match object; span=(20, 25), match='phone'>
+for i in re.finditer(pattern01,text01):
+    print(i)
+    print(i.span())
+    print(i.end())
+    print(i.start())
+    print("<<<<<<<<<<<<<<<<<<END>>>>>>>>>>>>>>>>>>>")
+
+
+
